@@ -5,7 +5,7 @@
     <title>CoreData viðbætur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/fav.ico">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
     <link rel="stylesheet" href="css/azazo.css">
 </head>
 <body>
@@ -81,36 +81,24 @@
 
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
 <script>
-    // Default fallback values
-    var cdd_version = "3.0.1";
-    var op_version = "1.5.0";
-    var zz_version = "1.0.3";
+  // Default fallback values
+  var cdd_version = "3.0.1";
+  var op_version = "1.5.0";
+  var zz_version = "1.0.3";
 
-    $.getJSON("versions.json", function (data) {
-        $.each(data, function (key, val) {
-            if (key.toUpperCase() === "COREDATA DESKTOP") {
-                cdd_version = val.version;
-            } else if (key.toUpperCase() === "COREDATA OUTLOOK") {
-                op_version = val.version;
-            } else if (key.toUpperCase() == "ZIMBRA ZIMLET") {
-                zz_version = val.version;
-            }
-        })
+  $(function() {
+    $.getJSON("versions.json").done(function(data) {
+      cdd_version = data['CoreData Desktop'].version;
+      op_version = data['CoreData Outlook'].version;
+      zz_version = data['Zimbra Zimlet'].version;
+    }).always(function() {
+      $('#cdd_version').text(cdd_version);
+      $('#op_version').text(op_version);
+      $('#zz_version').text(zz_version);
     });
-
-    $(document).ready(function() {
-        $('#cdd_version').text(cdd_version);
-    });
-
-    $(document).ready(function() {
-        $('#op_version').text(op_version);
-    });
-
-    $(document).ready(function() {
-        $('#zz_version').text(zz_version);
-    });
+  });
 </script>
 </body>
 </html>
