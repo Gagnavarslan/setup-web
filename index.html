@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="is">
+<head>
+    <meta charset="utf-8">
+    <title>CoreData viðbætur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/fav.ico">
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/azazo.css">
+</head>
+<body>
+<div class="pgwrap">
+    <div id="pghead">
+        <div class="navbar-brand">
+            <h1 class="brand">
+                <a href="http://azazo.is" title="AZAZO">
+                    <img class="logo" src="img/sitelogo.png">
+                </a>
+            </h1>
+        </div>
+        <div id="pgnav">
+            CoreData viðbætur
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+        </div>
+    </div>
+    <div id="pgcontent">
+        <div class="pgdngroup">
+            <h2>CoreData Desktop <span id="cdd_version">3.0.1</span></h2>
+
+            <p>CoreData Desktop er fáanlegt fyrir Windows stýrikerfi. Mismunandi útgáfur eru til fyrir 64 bita
+                örgjörva annars vegar og hins vegar x86<sup>(<a href="#1">1</a>)</sup>. Einnig skiptir máli hvort .NET 4.0 eða nýrra
+                sé uppsett eða eldri útgáfa (.NET 3.5)<sup>(<a href="#2">2</a>)</sup>.
+            </p>
+            <ul>
+                <li><a href="coredata_desktop-x64.msi">CoreData Desktop fyrir Windows 64b, .NET 3.5</a></li>
+                <li><a href="coredata_desktop-net40-x64.msi">CoreData Desktop fyrir Windows 64b, .NET 4.0+</a></li>
+                <li><a href="coredata_desktop-x86.msi">CoreData Desktop fyrir Windows x86, .NET 3.5</a></li>
+                <li><a href="coredata_desktop-net40-x86.msi">CoreData Desktop fyrir Windows x86, .NET 4.0+</a></li>
+            </ul>
+        </div>
+        <div class="pgdngroup">
+            <h2>Outlook Plugin <span id="op_version">1.5.0</span></h2>
+
+            <p>Outlook viðbótin er fáanleg fyrir Windows stýrikerfi. Tvær útgáfur eru til, annars vegar fyrir
+                .NET 3.5 og hins vegar .NET 4.0 og nýrri<sup>(<a href="#2">2</a>)</sup>. Ekki skiptir máli hvort um 64b eða x86 örgjörva er að
+                ræða.
+
+            </p>
+            <p>Outlook viðbótin styður Office 2010 og Office 2013.</p>
+            <ul>
+                <li><a href="outlook/coredata_outlook.msi">Outlook Plugin fyrir .NET 3.5</a></li>
+                <li><a href="outlook/coredata_outlook-net40.msi">Outlook Plugin fyrir .NET 4.0+</a></li>
+            </ul>
+        </div>
+
+        <div class="pgdngroup">
+            <h2>Zimbra Zimlet <span id="zz_version">1.0.3</span></h2>
+
+            <p>Zimbra Zimlet viðbótin fyrir Zimbra tölvupóstþjóna<sup>(<a href="#3">3</a>)</sup>.
+            </p>
+            <ul>
+                <li><a href="zimlet/is_gagnavarslan_coredata.zip">Zimbra Zimlet (zip skrá)</a></li>
+            </ul>
+        </div>
+
+
+        <div id="footer">
+        <ol>
+            <li><a name="1"></a>Til að komast að því hvort tölvan sé
+                64 bita eða x86, sjá
+                <a href="http://windows.microsoft.com/en-us/windows7/find-out-32-or-64-bit">
+                    grein hér fyrir Windows 7</a> og
+                <a href="http://pcsupport.about.com/od/windows-8/a/windows-8-64-bit-32-bit.htm">
+                    grein hér fyrir Windows 8+</a>.</li>
+            <li><a name="2"></a>Til að komast að því hvort tölvan sé með .NET 3.5 eða .NET 4.0+, sjá
+                <a href="http://support.microsoft.com/kb/318785">grein hér</a>.</li>
+            <li><a name="3"></a><a href="http://wiki.zimbra.com/wiki/Zimlets,_Setting_Up">Uppsetningarleiðbeiningar fyrir Zimbra
+                Zimlet</a></li>
+        </ol>
+        </div>
+
+    </div>
+</div>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script>
+  // Default fallback values
+  var cdd_version = "3.0.1";
+  var op_version = "1.5.0";
+  var zz_version = "1.0.3";
+
+  $(function() {
+    $.getJSON("versions.json").done(function(data) {
+      cdd_version = data['CoreData Desktop'].version;
+      op_version = data['CoreData Outlook'].version;
+      zz_version = data['Zimbra Zimlet'].version;
+    }).always(function() {
+      $('#cdd_version').text(cdd_version);
+      $('#op_version').text(op_version);
+      $('#zz_version').text(zz_version);
+    });
+  });
+</script>
+</body>
+</html>

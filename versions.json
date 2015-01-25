@@ -1,0 +1,25 @@
+{
+    "CoreData Desktop": {
+	"version": "3.0.1",
+	"important": true,
+	"minVersion": "2.5.1",
+	"binary": "http://coredata.is/setup/coredata_desktop-${ARCH}-3.0.1.0.msi"
+    },
+
+    "CoreData Desktop .NET40": {
+        "version": "3.0.1",
+        "important": true,
+        "minVersion": "2.8.3",
+        "binary": "http://coredata.is/setup/coredata_desktop-net40-${ARCH}-3.0.1.0.msi"
+    },
+
+    "CoreData Outlook": {
+        "version": "1.5.0",
+        "important": true
+    },
+
+    "Zimbra Zimlet": {
+        "version": "1.0.3",
+        "important": true
+    }
+}

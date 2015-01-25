@@ -1,0 +1,37 @@
+body {
+    font-family: "Proxima N W02 Cd Light", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+#pghead {
+    position: relative;
+    margin: 0 20px;
+    height: 158px;
+    border-bottom: 1px solid #b8b8b8;
+    border-top: 5px solid #0a0a0b;
+}
+
+#pgnav {
+    display: block;
+    position: relative;
+    float: right;
+    font-size: 1.55em;
+    line-height: 1.55em;
+    color: #595959;
+    top: 80px;
+}
+
+#pgcontent {
+    padding: .1em .20em;
+    margin: 0 20px;
+}
+
+.pgdngroup {
+    margin: 30px 0;
+}
+
+#footer {
+    margin-top: 70px;
+    font-size: 0.85em;
+    line-height: 1.35em;
+}
